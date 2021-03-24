@@ -1,0 +1,9 @@
+table,th,tr,td{
+    font-family: calibri;
+    border: 2px solid lightgreen;
+
+}
+
+th{
+    background-color: green;
+}

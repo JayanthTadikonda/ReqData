@@ -1,0 +1,20 @@
+h1{
+    background-color:rgb(101, 121, 238);
+    margin:0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div{
+    background-color: skyblue;
+    margin: 0;
+    padding: 3px;
+}
+
+p{
+    background-color: lightcyan;
+    padding: 10px;
+    margin: 0;
+    text-align: left;
+}
+
