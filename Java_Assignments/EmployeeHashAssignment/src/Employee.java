@@ -13,7 +13,6 @@ public class Employee {
 
     @Override
     public int hashCode() {
-        int a = 124;
-        return a;
+        return 15;
     }
 }

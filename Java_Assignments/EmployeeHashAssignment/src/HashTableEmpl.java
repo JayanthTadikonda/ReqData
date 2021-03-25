@@ -1,21 +1,23 @@
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Map;
 
 public class HashTableEmpl {
 
     public static void main(String[] args) {
 
-        Hashtable<Integer,Employee> ht = new Hashtable<>();
-        Hashtable<Integer,Employee> ht1 = new Hashtable<>();
+        HashMap<Integer,Employee> ht = new HashMap<>();
 
         ht.put(1,new Employee("Jack"));
-        ht1.put(2,new Employee("Reb"));
+        ht.put(2,new Employee("Rebadaaaaa"));
+        ht.put(3,new Employee("Rebacaa"));
+        ht.put(4,new Employee("Rebac"));
 
-        System.out.println(ht.hashCode());
-        System.out.println(ht.equals(ht1));
+        for (Map.Entry m: ht.entrySet()) {
+            System.out.println(m.getKey()+" " + m.getValue().toString());
+        }
 
-        System.out.println(ht1.hashCode());
-        System.out.println(ht.get(1).name);
-        System.out.println(ht1.get(2).name);
+        System.out.println("Size: " + ht.size());
 
     }
 }
