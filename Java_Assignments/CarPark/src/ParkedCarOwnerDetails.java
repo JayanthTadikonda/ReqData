@@ -6,6 +6,9 @@ public class ParkedCarOwnerDetails {
     private long mobileNo;
     private String ownerAddress;
 
+    public ParkedCarOwnerDetails() {
+    }
+
     public ParkedCarOwnerDetails(String ownerName, String carModel, int carNo, long mobileNo, String ownerAddress) {
         this.ownerName = ownerName;
         this.carModel = carModel;
