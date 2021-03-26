@@ -3,15 +3,15 @@ import java.util.Scanner;
 
 public class ChatRoomMethods {
     public Scanner sc = new Scanner(System.in);
-    //ArrayList<ArrayList> cl = new ArrayList<>();
+
     ArrayList<ChatRoom> cl = new ArrayList<>();
-    //ArrayList<String> users = new ArrayList<>();
+
 
     public void createChatRoom() {
         System.out.println("Enter name: ");
         String n = sc.nextLine();
         cl.add(new ChatRoom(n));
-        System.out.println("ChatRoom Created ! ");
+        System.out.println(n +" ChatRoom Created ! ");
     }
 
     public void addUser() {
@@ -25,9 +25,9 @@ public class ChatRoomMethods {
         } else
             for (ChatRoom e : cl) {
                 if (e.getChatroomName().equalsIgnoreCase(cn)) {
-                    System.out.println("ChatRoom Available");
+                    System.out.println(cn + " ChatRoom Available");
                     e.users.add(un);
-                    System.out.println("User Added !");
+                    System.out.println(un +" Added !");
                 }
             }
     }
@@ -48,7 +48,7 @@ public class ChatRoomMethods {
                     System.out.println("No users present !");
                 } else if(un.equalsIgnoreCase(e.users.get(index))){
                     e.login(un);
-                    System.out.println("Logged in !");
+                    System.out.println(un+ " Logged in !");
                     e.setUserLoginStatus(true);
                     e.setChatRoomStatus(true);
                 }
@@ -95,6 +95,12 @@ public class ChatRoomMethods {
        }
    }
 
+   public void listUsers(){
+       for (ChatRoom c:cl) {
+           System.out.println(c.users.toString());
+       }
+   }
+
    public void deleteChatRoom(){
        System.out.println("Enter Chatroom Name to DELETE: ");
        String cn = sc.nextLine();
@@ -117,7 +123,9 @@ public class ChatRoomMethods {
            int index = c.users.indexOf(un);
            if(c.users.get(index).equalsIgnoreCase(un)){
                c.users.remove(index);
-           }
+               System.out.println(un +" DELETED");
+           }else
+               System.out.println("User not Available");
        }
    }
 }

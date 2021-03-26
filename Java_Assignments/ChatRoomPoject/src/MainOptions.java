@@ -37,7 +37,7 @@ public class MainOptions {
                    break;
 
                 case 6:
-                    cm.listChatrooms();
+                    cm.listUsers();
                     break;
 
                 case 7:
@@ -53,6 +53,7 @@ public class MainOptions {
                     break;
 
                case 10:
+                   System.out.println("Exiting App !");
                    quit = true;
            }
        }

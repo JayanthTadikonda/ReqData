@@ -56,4 +56,10 @@ public class ChatRoom {
         this.chatroomName = chatroomName;
     }
 
+    @Override
+    public String toString() {
+        return "ChatRoom{" +
+                "users=" + users +
+                '}';
+    }
 }
