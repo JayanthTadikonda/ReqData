@@ -22,7 +22,7 @@ public class MapStringAppend {
         //map.forEach((a,b)-> System.out.println(consumer);
 
 
-        System.out.println(map.entrySet());
+        //System.out.println(map.entrySet());
         map.forEach((a,b)->s.append(a).append(b));
         System.out.println(s.toString());
     }
