@@ -20,11 +20,11 @@ public class NewsDatabase {
                 new News(3,"ae","aASdasd","asasdascascascsa"),
                 new News(2,"avc","asdasd","asdascascasca"));
 
-//        int newscount = (int) newsList.stream()
-//                .count()
-//                .max((c,c1)-> c.getcomment().compareToIgnoreCase(c1.getcomment())).stream().count();
-
-
+/*
+        int newscount = (int) newsList.stream()
+                .count()
+                .max((c,c1)-> c.getcomment().compareToIgnoreCase(c1.getcomment())).stream().count();
+        //Find out which user has posted maximum comments.
         Optional<Object> mostCommonTag = newsList.stream()
                 .collect(Collectors.groupingBy(News::getPostedByUser, Collectors.counting()))
                 // fetch the max entry
@@ -32,18 +32,22 @@ public class NewsDatabase {
                 // map to tag
                 .map(Map.Entry::getKey);
 
+        //Find out which newsID has maximum comments.
         Optional<Object> mostCommonID = newsList.stream()
                 .collect(Collectors.groupingBy(News::getNewsId, Collectors.counting()))
                 // fetch the max entry
                 .entrySet().stream().max(Map.Entry.comparingByValue())
                 // map to tag
                 .map(Map.Entry::getKey);
+        int i = (int) newsList.stream()
+                .filter((word)-> Arrays.stream(word.getcomment().split(" ")).allMatch(p->p.contains("budget"))).count();
 
-//        int i = (int) newsList.stream()
-//                .filter((word)-> Arrays.stream(word.getcomment().split(" ")).allMatch(p->p.contains("budget"))).count();
-//
-       System.out.println(mostCommonTag);
+        System.out.println(mostCommonTag);
         System.out.println(mostCommonID);
+
+*/
+        newsList.stream().collect(Collectors.groupingBy(News::getPostedByUser,Collectors.counting()),
+
 
     }
 }
