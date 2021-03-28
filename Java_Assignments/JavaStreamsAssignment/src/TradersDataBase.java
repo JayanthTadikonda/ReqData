@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class TradersDataBase {
 
@@ -54,8 +55,15 @@ public class TradersDataBase {
 
 
         //Names Sorted Alphabetically
-        StringBuilder traderNames = new StringBuilder();
-        traders.stream().sorted((n1,n2)->n1.getName().compareToIgnoreCase(n2.getName())).forEach(trader -> traderNames.append(trader.getName()));
-        System.out.println(traderNames);
+//        StringBuilder traderNames = new StringBuilder();
+//        traders.stream().sorted((n1,n2)->n1.getName().compareToIgnoreCase(n2.getName())).forEach(trader -> traderNames.append(trader.getName()));
+//        System.out.println(traderNames);
+
+        //Transaction Yearly
+//        transactions.stream().filter(transaction -> transaction.getYear()==2011)
+//                .sorted((v1,v2)->Integer.compare(v1.getValue(),v2.getValue())).forEach(transaction -> System.out.println(transaction.getValue()));
+
+        //Unique City
+        traders.stream().distinct().collect(Collectors.groupingBy(Trader::getCity)).entrySet().forEach((s)-> System.out.println(s.getKey()));
     }
 }

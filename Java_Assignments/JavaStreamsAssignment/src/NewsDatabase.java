@@ -46,7 +46,7 @@ public class NewsDatabase {
         System.out.println(mostCommonID);
 
 */
-        newsList.stream().collect(Collectors.groupingBy(News::getPostedByUser,Collectors.counting()),
+        //newsList.stream().collect(Collectors.groupingBy(News::getPostedByUser,Collectors.counting()),
 
 
     }
