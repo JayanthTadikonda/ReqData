@@ -13,6 +13,7 @@ public class NewsDatabase {
                 new News(1,"ae","aASdasd","asasdascascascsa"),
                 new News(4,"avc","asdasd","asdascascasca"),
                 new News(4,"bbb","bbbsdasdb","asdsddcdz budget budget cdsca"),
+                new News(4,"bbb","bbbsdasdjfjfjfjb","asdsddjdjdjcdz budget budget cdsca"),
                 new News(4,"abc","asdasd","asas budget dasdsacdascdacdsa"),
                 new News(1,"zc","bbbbsd","asdsdAascasa"),
                 new News(3,"am","asdewf","asdsASCASCaa"),
@@ -46,8 +47,21 @@ public class NewsDatabase {
         System.out.println(mostCommonID);
 
 */
-        int commnets = (int) newsList.stream().collect(Collectors.groupingBy(News::getCommentByUser)).entrySet().stream().count();
-        System.out.println(commnets);
+        Map<String , Integer> hmap  = newsList.stream().collect(Collectors.groupingBy(News::getPostedByUser)).entrySet()
+                                            .stream().collect(Collectors.toMap(x -> x.getKey() , x -> x.getValue().size()));
+
+        newsList.stream().collect(Collectors.groupingBy(News::getPostedByUser)).entrySet()
+                .stream().collect(Collectors.toMap(x -> x.getKey() , x -> x.getValue().size())).entrySet()
+                .forEach((a )-> System.out.println(a.getKey()+" : "+a.getValue()));
+
+
+
+
+        System.out.println(hmap);
+
+
+
+       /* newsList.stream().collect(Collectors.groupingBy(News::getPostedByUser))*/
 
 
     }
