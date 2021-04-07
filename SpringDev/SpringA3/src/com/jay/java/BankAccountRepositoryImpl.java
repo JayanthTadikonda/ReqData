@@ -20,6 +20,7 @@ public class BankAccountRepositoryImpl implements BankAccountRepository {
             for (BankAccount b: accounts) {
                 if(b.getAccountId()==accountId){
                     int index = accounts.indexOf(b);
+                    System.out.println("Get BALANCE from Repo");
                     System.out.println("Bal: "+ accounts.get(index).getAccountBalance());
                 }
             };
@@ -33,7 +34,7 @@ public class BankAccountRepositoryImpl implements BankAccountRepository {
                 int index = accounts.indexOf(b);
                 double bal = b.getAccountBalance()+newBalance;
                 b.setAccountBalance(bal);
-                System.out.println("Updated Bal: "+ accounts.get(index).getAccountBalance());
+                System.out.println("Updated Bal at Repo: "+ accounts.get(index).getAccountBalance());
             }
         };
         return 0;

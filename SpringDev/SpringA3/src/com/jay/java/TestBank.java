@@ -8,14 +8,21 @@ public class TestBank {
     public static void main(String[] args) {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("banks.xml");
-        BankAccountRepositoryImpl bankAccountRepository = (BankAccountRepositoryImpl) context.getBean("bankAccount");
+        BankAccountRepository bankAccountRepository = (BankAccountRepository) context.getBean("bankAccount");
+        BankServiceImpl service = (BankServiceImpl) context.getBean("serviceAcc");
+        BankAccountService bankAccountService = (BankAccountService) context.getBean("serve");
 
-        System.out.println(bankAccountRepository.getAccounts().toString());
+       // System.out.println(bankAccountRepository.getAccounts().toString());
+
+        service.getBalance(111);
+
         bankAccountRepository.getBalance(111);
-        bankAccountRepository.updateBalance(111,100);
+        bankAccountRepository.updateBalance(111,110);
 
-        BankServiceImpl bankService = (BankServiceImpl) context.getBean("bankAccountService");
-        bankService.withdraw(111,500);
+        service.getBalance(111);
+        bankAccountRepository.getBalance(111);
+
+
 
     }
 }

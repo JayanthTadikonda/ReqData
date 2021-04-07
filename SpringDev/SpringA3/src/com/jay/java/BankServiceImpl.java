@@ -1,23 +1,34 @@
 package com.jay.java;
 
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class BankServiceImpl implements BankAccountService {
+import java.util.List;
 
-   // BankAccountRepositoryImpl bankAccountRepository ;
-   ApplicationContext context = new ClassPathXmlApplicationContext("banks.xml");
-   BankAccountRepositoryImpl impl = (BankAccountRepositoryImpl) context.getBean("bankAccount");
+public class BankServiceImpl implements BankAccountService{
+
+    List<BankAccount> accounts;
+
+    public List<BankAccount> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<BankAccount> accounts) {
+        this.accounts = accounts;
+    }
 
     @Override
     public double withdraw(long accountId, double balance) {
 
-        for (BankAccount b: impl.accounts) {
-            if(b.getAccountId() == accountId){
-                double bal = b.getAccountBalance() - balance;
-                System.out.println("Remaining Balance after Withdrawal: " + bal);
-            }
-        }
+//        for (BankAccount b: impl.accounts) {
+//            if(b.getAccountId() == accountId){
+//                double bal = b.getAccountBalance() - balance;
+//                System.out.println("Remaining Balance after Withdrawal: " + bal);
+//            }
+        //}
         return 0;
     }
 
@@ -28,13 +39,22 @@ public class BankServiceImpl implements BankAccountService {
 
     @Override
     public double getBalance(long accountId) {
-        double bal = 0.0;
+        System.out.println("Calling getBalance from service IMPL");
+        for (BankAccount b: accounts) {
+            if(b.getAccountId()==accountId){
+                int index = accounts.indexOf(b);
+                System.out.println("Bal: "+ accounts.get(index).getAccountBalance());
+            }
+        };
+        //System.out.println("Balance: " + a);
 
        return 0;
     }
 
     @Override
     public boolean fundTransfer(long fromAccount, long toAccount, double amount) {
+
         return false;
     }
+
 }

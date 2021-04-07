@@ -1,0 +1,37 @@
+				
+				ANNOTATIONS SPRING CORE 
+				
+				
+				
+
+1.  @Controller :  		Controller is the annotation used in the spring mvc, used to implement a web page.
+						Controller indicates that the particular class serves the role of a controller.
+				   
+
+				   
+2.  @Service    :  		Spring @Service annotation is used with classes that provide some business functionalities.
+						Spring context will autodetect these classes when annotation-based configuration and classpath scanning is used.
+				   
+				   
+3.  @Repositroy :  		@Repositroy annotation is used to indicate that particular class provieds implementation of databases, storage, retrieval,
+						creation, updation, deletion.
+					
+					
+4.	@Autowired  :  		The Spring framework enables automatic dependency injection. In other words, by declaring all the bean dependencies in a Spring configuration file,
+						Spring container can autowire relationships between collaborating beans. This is called Spring bean autowiring.
+
+
+5.  @Configuration	:	Configuration indicates that the class declares one or more @Bean methods and maybe processed by Spring container.
+						 to generate bean definitions and service requests for those beans at runtime.
+						 
+						 
+6.  @Bean			:   Spring @Bean Annotation is applied on a method to specify that it returns a bean to be managed by Spring context.
+						Spring Bean annotation is usually declared in Configuration classes methods.
+						In this case, bean methods may reference other @Bean methods in the same class by calling them directly.	
+						
+7.  @Resource       :   The @Resource annotation in spring performs the autowiring functionality.
+						This annotation follows the autowire=byName semantics in the XML based configuration 
+						i.e. it takes the name attribute for the injection.						
+
+						
+  				   

@@ -13,9 +13,11 @@ public class BeanLifeCycleDemo implements InitializingBean, DisposableBean, Appl
         System.out.println("Hello Bean");
     }
 
+    @PostConstruct
     public void init(){
         System.out.println("User Defined Initialization!");
     }
+    @PreDestroy
     public void kill(){
         System.out.println("User Defined Bean Destruction!");
     }
