@@ -8,18 +8,24 @@ public class BankAccountController implements ApplicationContextAware {
     ApplicationContext context = null;
 
     public double withdraw(long accountId, double balance){
-        return balance;
+        BankAccountRepositoryImpl impl = (BankAccountRepositoryImpl) context.getBean("bankAccount");
+        double bal = impl.updateBalance(accountId,-balance);
+//        bal -= balance;
+//        System.out.println("After Withdrawal: " + getBalance(accountId));
+        return bal;
     }
 
     public double deposit(long accountId, double balance){
         return balance;
     }
 
-   /* public double getBalance(long accountId){
-        BankServiceImpl impl = (BankServiceImpl) context.getBean("serve");
-        System.out.println(impl.getBalance(accountId));
-        return 0;
-    }*/
+   public double getBalance(long accountId){
+       System.out.println("Calling From CONTROLLER ");
+        BankAccountRepositoryImpl impl = (BankAccountRepositoryImpl) context.getBean("bankAccount");
+        double bal = impl.getBalance(accountId);
+        //System.out.println(impl.getBalance(accountId));
+        return bal;
+    }
 
     public boolean fundTransfer(long fromAccount, long toAccount, double amount){
         return false;

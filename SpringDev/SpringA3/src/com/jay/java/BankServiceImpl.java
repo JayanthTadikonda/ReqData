@@ -8,9 +8,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
-public class BankServiceImpl implements BankAccountService{
+public class BankServiceImpl implements BankAccountService, ApplicationContextAware{
 
     List<BankAccount> accounts;
+    private ApplicationContext applicationContext;
 
     public List<BankAccount> getAccounts() {
         return accounts;
@@ -57,4 +58,13 @@ public class BankServiceImpl implements BankAccountService{
         return false;
     }
 
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
+
+    public ApplicationContext getApplicationContext() {
+        System.out.println(applicationContext.getApplicationName());
+        return applicationContext;
+    }
 }

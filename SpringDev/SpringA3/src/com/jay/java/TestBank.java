@@ -10,19 +10,23 @@ public class TestBank {
         ApplicationContext context = new ClassPathXmlApplicationContext("banks.xml");
         BankAccountRepository bankAccountRepository = (BankAccountRepository) context.getBean("bankAccount");
         BankServiceImpl service = (BankServiceImpl) context.getBean("serviceAcc");
-        BankAccountService bankAccountService = (BankAccountService) context.getBean("serve");
+        BankAccountController controller = (BankAccountController) context.getBean("control");
 
-       // System.out.println(bankAccountRepository.getAccounts().toString());
+        //System.out.println(bankAccountRepository.getAccounts().toString());
 
-        service.getBalance(111);
+        //service.getBalance(111);
 
         bankAccountRepository.getBalance(111);
         bankAccountRepository.updateBalance(111,110);
 
         service.getBalance(111);
+
         bankAccountRepository.getBalance(111);
 
+       // controller.bankAccountService.withdraw(111,123);
 
+        controller.withdraw(111,2000);
+        controller.getBalance(111);
 
     }
 }

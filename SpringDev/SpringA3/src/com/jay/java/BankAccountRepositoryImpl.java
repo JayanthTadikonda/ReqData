@@ -11,6 +11,7 @@ public class BankAccountRepositoryImpl implements BankAccountRepository {
         return accounts;
     }
 
+
     public void setAccounts(List<BankAccount> accounts) {
         this.accounts = accounts;
     }
@@ -20,7 +21,7 @@ public class BankAccountRepositoryImpl implements BankAccountRepository {
             for (BankAccount b: accounts) {
                 if(b.getAccountId()==accountId){
                     int index = accounts.indexOf(b);
-                    System.out.println("Get BALANCE from Repo");
+                    System.out.println("Getting BALANCE from Repo");
                     System.out.println("Bal: "+ accounts.get(index).getAccountBalance());
                 }
             };
