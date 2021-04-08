@@ -2,24 +2,17 @@ package com.jay.java;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
-public class BankServiceImpl implements BankAccountService, ApplicationContextAware{
+public class BankServiceImpl implements BankAccountService{
 
-    List<BankAccount> accounts;
-    private ApplicationContext applicationContext;
-
-    public List<BankAccount> getAccounts() {
-        return accounts;
-    }
-
-    public void setAccounts(List<BankAccount> accounts) {
-        this.accounts = accounts;
-    }
+    @Autowired
+    BankAccountRepositoryImpl accounts;
 
     @Override
     public double withdraw(long accountId, double balance) {
@@ -41,14 +34,12 @@ public class BankServiceImpl implements BankAccountService, ApplicationContextAw
     @Override
     public double getBalance(long accountId) {
         System.out.println("Calling getBalance from service IMPL");
-        for (BankAccount b: accounts) {
+        for (BankAccount b: accounts.getAccounts()) {
             if(b.getAccountId()==accountId){
-                int index = accounts.indexOf(b);
-                System.out.println("Bal: "+ accounts.get(index).getAccountBalance());
+                int index = accounts.getAccounts().indexOf(b);
+                System.out.println("Bal: "+ accounts.getAccounts().get(index).getAccountBalance());
             }
         };
-        //System.out.println("Balance: " + a);
-
        return 0;
     }
 
@@ -56,15 +47,5 @@ public class BankServiceImpl implements BankAccountService, ApplicationContextAw
     public boolean fundTransfer(long fromAccount, long toAccount, double amount) {
 
         return false;
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
-    }
-
-    public ApplicationContext getApplicationContext() {
-        System.out.println(applicationContext.getApplicationName());
-        return applicationContext;
     }
 }

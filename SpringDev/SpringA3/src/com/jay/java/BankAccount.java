@@ -1,5 +1,7 @@
 package com.jay.java;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class BankAccount {
 
     private long accountId;
@@ -20,7 +22,7 @@ public class BankAccount {
     public long getAccountId() {
         return accountId;
     }
-
+    @Autowired
     public void setAccountId(long accountId) {
         this.accountId = accountId;
     }

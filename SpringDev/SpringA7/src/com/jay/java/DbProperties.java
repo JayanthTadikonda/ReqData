@@ -1,22 +1,27 @@
 package com.jay.java;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.stereotype.Component;
 
-@Configuration
+@Component
+//@PropertySource("classpath:dbConfig.properties")
 public class DbProperties {
 
-    //@Value("${db.className}")
+   // @Value("${db.className}")
     private String className;
 
-   // @Value("${db.user}")
+   //@Value("${db.user}")
     private String user;
 
-   // @Value("${db.password}")
+   //@Value("${db.password}")
     private String password;
 
-    //@Value("${db.url}")
+   //@Value("${db.url}")
     private String url;
 
     public DbProperties(String className, String user, String password, String url) {
@@ -29,7 +34,6 @@ public class DbProperties {
     public String getClassName() {
         return className;
     }
-
     public void setClassName(String className) {
         this.className = className;
     }
@@ -67,4 +71,5 @@ public class DbProperties {
                 ", url='" + url + '\'' +
                 '}';
     }
+
 }

@@ -1,10 +1,17 @@
 package com.jay.java;
 
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
-public class BankAccountRepositoryImpl implements BankAccountRepository {
+@Component
+public class BankAccountRepositoryImpl implements BankAccountRepository, ApplicationContextAware {
 
-
+    ApplicationContext applicationContext;
     public List<BankAccount> accounts;
 
     public List<BankAccount> getAccounts() {
@@ -46,5 +53,10 @@ public class BankAccountRepositoryImpl implements BankAccountRepository {
         return "BankAccountRepositoryImpl{" +
                 "accounts=" + accounts +
                 '}';
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
     }
 }
