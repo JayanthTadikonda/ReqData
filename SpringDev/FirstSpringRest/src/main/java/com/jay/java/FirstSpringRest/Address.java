@@ -1,11 +1,16 @@
 package com.jay.java.FirstSpringRest;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class Address {
 
 
     private String state;
     private String city;
     private String Country;
+    @NotEmpty
+    @Size(min = 3)
     private long zip;
 
     public Address(String state, String city, String country, long zip) {
