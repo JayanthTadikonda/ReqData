@@ -1,8 +1,9 @@
 package com.jay.service;
 
 import com.jay.model.EmployeeModel;
-import com.jay.EmployeeRepository;
+import com.jay.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
