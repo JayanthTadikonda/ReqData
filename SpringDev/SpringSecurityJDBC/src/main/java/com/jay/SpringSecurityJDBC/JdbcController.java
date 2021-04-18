@@ -7,15 +7,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class JdbcController {
 
-//    @Autowired
-//    private BCryptPasswordEncoder bCryptPasswordEncoder;
-//
-//    @PutMapping(value ="/register{encode}")
-//    public String passEncrypt(@PathVariable ("encode") String pass){
-//        String encodedPass = bCryptPasswordEncoder.encode(pass);
-//        return encodedPass;
-//    }
-
     @GetMapping("/")
     public String helloAll(){
         return "Hello All";

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Login Page</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/login2}" th:object="${student}" method="POST" enctype="utf8">
+  <div class="container">
+    <h1>Login</h1>
+    <hr>
+    <label for="username"><b>username</b></label>
+    <input type="text" placeholder="Enter First Name" name="username" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+
+    <hr>
+    <button type="submit" class="registerbtn">Login</button>
+
+    <hr>
+    <input type="checkbox" id="rm" name="rm">Remember Me</input>
+  </div>
+
+  <div class="container signin">
+    <p>Already have an account? <a href="/login">Sign in</a>.</p>
+  </div>
+</form>
+</body>
+</html>
